@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown渲染测试</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Markdown渲染测试</h1>
+        
+        <div class="card">
+            <h2>测试内容</h2>
+            <div class="summary-content" id="testContent">
+                <!-- 测试内容将通过JavaScript插入 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Markdown渲染函数
+        function renderMarkdown(text) {
+            if (!text) return '';
+            
+            return text
+                // 标题
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                
+                // 粗体和斜体
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                
+                // 代码块
+                .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>')
+                
+                // 列表
+                .replace(/^\* (.*$)/gim, '<li>$1</li>')
+                .replace(/^- (.*$)/gim, '<li>$1</li>')
+                .replace(/^\d+\. (.*$)/gim, '<li>$1</li>')
+                
+                // 链接
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+                
+                // 换行
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>')
+                
+                // 包装段落
+                .replace(/^(.*)$/gm, '<p>$1</p>')
+                
+                // 清理空段落
+                .replace(/<p><\/p>/g, '')
+                .replace(/<p><br><\/p>/g, '')
+                
+                // 包装列表项
+                .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+                .replace(/<\/ul>\s*<ul>/g, '');
+        }
+
+        // 测试内容
+        const testContent = `## 当前分析与更新后的工作状态：
+- 正在进行的工作：继续推进A2A项目的开发（需攻克技术难点，优先级最高）  
+- 新增计划：完成A2A后启动深度学习框架TensorFlow的研究（待开始）  
+- 已完成的工作：机器学习算法学习（实战验证效果达标）  
+
+## 当前状态总结：
+A2A项目进入攻坚阶段，机器学习基础已验证，下一步将聚焦TensorFlow框架实践。
+
+### 技术建议
+- **优先级管理**：专注于A2A项目的技术难点攻克
+- **学习规划**：为TensorFlow学习做好前期准备
+- **技能巩固**：继续深化机器学习算法理解
+
+### 下一步行动
+1. 完成A2A项目核心功能
+2. 整理机器学习学习笔记
+3. 制定TensorFlow学习计划`;
+
+        // 渲染测试内容
+        document.getElementById('testContent').innerHTML = renderMarkdown(testContent);
+    </script>
+</body>
+</html>

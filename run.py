@@ -29,7 +29,7 @@ def create_env_file():
     if not os.path.exists(env_file):
         with open(env_file, 'w', encoding='utf-8') as f:
             f.write("""# 硅基流动API配置
-SILICONFLOW_API_KEY=your_api_key_here
+SILICONFLOW_API_KEY=sk-mfvgxdishgetqlikzayseblbqwbgbfhnmzxybxlnedrfafwy
 SILICONFLOW_BASE_URL=https://api.siliconflow.cn/v1
 
 # Flask配置

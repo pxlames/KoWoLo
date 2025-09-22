@@ -1,7 +1,152 @@
-{
-  "currentWork": "学习Python Flask框架",
-  "futureWork": "学习机器学习算法",
-  "currentCompleted": false,
-  "futureCompleted": false,
-  "lastUpdated": "2025-09-22T14:56:11.853717"
-}
+[
+  {
+    "id": "1",
+    "title": "A2A",
+    "description": "需要认真学习",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T15:44:16.390146",
+    "updatedAt": "2025-09-22T23:11:09.419790"
+  },
+  {
+    "id": "2",
+    "title": "A2A",
+    "description": "需要认真学习",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T15:44:18.194554",
+    "updatedAt": "2025-09-22T23:11:09.419799"
+  },
+  {
+    "id": "3",
+    "title": "A2A",
+    "description": "需要认真学习",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T15:44:28.216724",
+    "updatedAt": "2025-09-22T23:11:09.419803"
+  },
+  {
+    "id": "4",
+    "title": "A2A",
+    "description": "需要认真学习",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T15:44:29.632702",
+    "updatedAt": "2025-09-22T23:11:09.419807"
+  },
+  {
+    "id": "5",
+    "title": "A2A",
+    "description": "需要认真学习",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T15:44:30.052974",
+    "updatedAt": "2025-09-22T23:11:09.419810"
+  },
+  {
+    "id": "6",
+    "title": "A2A",
+    "description": "需要认真学习",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T15:44:30.457994",
+    "updatedAt": "2025-09-22T23:11:09.419814"
+  },
+  {
+    "id": "7",
+    "title": "A2A",
+    "description": "需要认真学习",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T15:44:45.019024",
+    "updatedAt": "2025-09-22T23:11:09.419817"
+  },
+  {
+    "id": "8",
+    "title": "A2A",
+    "description": "需要认真学习",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T15:44:45.870738",
+    "updatedAt": "2025-09-22T23:11:09.419821"
+  },
+  {
+    "id": "9",
+    "title": "Spring AI alibaba",
+    "description": "我正在学习如何更加高效的构建Agent应用，包括智能体创建、大模型调用、后端服务、业务逻辑编写等",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T20:06:10.228725",
+    "updatedAt": "2025-09-22T23:11:09.419824"
+  },
+  {
+    "id": "10",
+    "title": "Spring AI alibaba",
+    "description": "",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T20:14:36.095744",
+    "updatedAt": "2025-09-22T23:11:09.419827"
+  },
+  {
+    "id": "11",
+    "title": "实战学习MCP",
+    "description": "",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T20:32:31.849130",
+    "updatedAt": "2025-09-22T23:11:09.419831"
+  },
+  {
+    "id": "12",
+    "title": "HR面试准备",
+    "description": "",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T22:44:52.110647",
+    "updatedAt": "2025-09-22T23:11:09.419834"
+  },
+  {
+    "id": "13",
+    "title": "联系HRBP问题",
+    "description": "",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T23:03:01.188985",
+    "updatedAt": "2025-09-22T23:11:09.419838"
+  },
+  {
+    "id": "14",
+    "title": "练习HRBP问题",
+    "description": "",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T23:03:24.033705",
+    "updatedAt": "2025-09-22T23:11:09.419841"
+  },
+  {
+    "id": "15",
+    "title": "快速提高效率看一些常见的问题",
+    "description": "",
+    "type": "ongoing",
+    "completed": false,
+    "aiProcessed": true,
+    "createdAt": "2025-09-22T23:10:08.284158",
+    "updatedAt": "2025-09-22T23:11:09.419844"
+  }
+]
