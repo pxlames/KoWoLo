@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人技术工作规划</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-code"></i> 个人技术工作规划</h1>
+                <p>跟踪你的学习进度，智能生成技术总结</p>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 状态输入区域 -->
+            <section class="input-section">
+                <div class="card">
+                    <h2><i class="fas fa-plus-circle"></i> 更新状态</h2>
+                    <form id="statusForm" class="status-form">
+                        <div class="form-group">
+                            <label for="currentWork">我正在做什么：</label>
+                            <textarea id="currentWork" name="currentWork" placeholder="描述你当前正在进行的技术工作或学习内容..." rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="futureWork">我将要做什么：</label>
+                            <textarea id="futureWork" name="futureWork" placeholder="描述你计划进行的技术工作或学习内容..." rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> 提交状态
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 状态展示区域 -->
+            <section class="status-section">
+                <div class="card">
+                    <h2><i class="fas fa-tasks"></i> 当前状态</h2>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <div class="status-header">
+                                <h3><i class="fas fa-play-circle"></i> 正在进行</h3>
+                                <div class="status-actions">
+                                    <button class="btn-icon" onclick="toggleStatus('current')" title="标记完成">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="status-content" id="currentStatus">
+                                <p class="placeholder">暂无进行中的工作</p>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-header">
+                                <h3><i class="fas fa-clock"></i> 计划进行</h3>
+                                <div class="status-actions">
+                                    <button class="btn-icon" onclick="toggleStatus('future')" title="标记完成">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="status-content" id="futureStatus">
+                                <p class="placeholder">暂无计划中的工作</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 智能总结区域 -->
+            <section class="summary-section">
+                <div class="card">
+                    <h2><i class="fas fa-brain"></i> 智能技术总结</h2>
+                    <div class="summary-content" id="summaryContent">
+                        <p class="placeholder">提交状态后将自动生成技术总结</p>
+                    </div>
+                    <div class="summary-actions">
+                        <button class="btn btn-secondary" onclick="refreshSummary()">
+                            <i class="fas fa-sync-alt"></i> 刷新总结
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 加载提示 -->
+        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>AI正在生成总结...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
