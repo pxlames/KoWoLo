@@ -259,7 +259,6 @@ async function generateAISummary() {
         }
         
         summaryElement.classList.remove('placeholder');
-        console.log(1);
         
         
         // 创建消息元素用于流式显示
