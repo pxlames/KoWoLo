@@ -16,7 +16,7 @@ def test_append_logic():
         'summary': '这是第一次的总结内容。',
         'lastUpdated': '2025-09-22T23:00:00'
     }
-    # 
+    
     # 模拟新生成的内容
     new_content = '这是第二次的总结内容。'
     
