@@ -6,7 +6,7 @@
 
 import os
 from typing import Dict, Any
-from database_manager import get_database_url, TechPlanningDB
+from .database_manager import get_database_url, TechPlanningDB
 
 class DatabaseConfig:
     """数据库配置管理类"""
