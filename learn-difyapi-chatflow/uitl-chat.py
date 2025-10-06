@@ -24,6 +24,7 @@ class DifyChatflowClient:
         self.api_key = api_key
         self.base_url = base_url
         self.session = requests.Session()
+        self.session.proxies = {}  # 禁用代理
         self.session.headers.update({
             'Authorization': f'Bearer {api_key}',
             'Content-Type': 'application/json'
@@ -190,8 +191,57 @@ def simple_chat_streaming(query: str, api_key: str = "app-1QxUL5OqjaFWvSNUE2bHsm
         "user": "test-user"
     }
     
+    # 创建session并禁用代理
+    session = requests.Session()
+    session.proxies = {}
+    
     try:
-        response = requests.post(url, headers=headers, json=data, stream=True)
+        response = session.post(url, headers=headers, json=data, stream=True)
+        response.raise_for_status()
+        
+        for line in response.iter_lines():
+            if line:
+                line_str = line.decode('utf-8')
+                if line_str.startswith('data: '):
+                    try:
+                        data = json.loads(line_str[6:])
+                        yield data
+                    except json.JSONDecodeError:
+                        continue
+    except requests.exceptions.RequestException as e:
+        yield {"error": f"流式API调用失败: {str(e)}"}
+
+def todo_simple_chat_streaming(info: str, todo: str, api_key: str = "app-1QxUL5OqjaFWvSNUE2bHsmPT"):
+    """
+    简单的流式聊天函数
+    
+    Args:
+        api_key: API密钥
+    
+    Yields:
+        流式响应数据块
+    """
+    url = "https://api.dify.ai/v1/chat-messages"
+    
+    headers = {
+        'Authorization': f'Bearer {api_key}',
+        'Content-Type': 'application/json'
+    }
+    
+    data = {
+        "inputs": {"todo": todo, "info": info},
+        "query": "1",
+        "response_mode": "streaming",
+        "conversation_id": "",
+        "user": "test-user"
+    }
+    
+    # 创建session并禁用代理
+    session = requests.Session()
+    session.proxies = {}
+    
+    try:
+        response = session.post(url, headers=headers, json=data, stream=True)
         response.raise_for_status()
         
         for line in response.iter_lines():
@@ -218,7 +268,7 @@ def main():
     print("开始接收流式数据...")
 
     # 实时解析和打印流式API返回的内容，兼容多种事件类型
-    for chunk in simple_chat_streaming("你好", API_KEY):
+    for chunk in todo_simple_chat_streaming(" 保持A2A多线程开发任务的高强度投入，深化Spring AI alibaba框架下智能体应用的业务逻辑实现与大模型调用优化。并行完善开源项目代码提交，持续打磨MCP组件实现与HRBP面试问题应对能力。", "开始专注于项目开发", API_KEY):
         if not isinstance(chunk, dict):
             continue
         # 处理 message 事件，打印 answer 字段
@@ -237,6 +287,8 @@ def main():
         elif "error" in chunk:
             print(f"\n错误: {chunk['error']}")
         # 其他事件可根据需要扩展
-    print()  # 最后换行
+
+
+
 if __name__ == "__main__":
     main()
