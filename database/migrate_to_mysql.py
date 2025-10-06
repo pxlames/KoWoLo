@@ -10,7 +10,7 @@ import sys
 import json
 import argparse
 from datetime import datetime
-from database_manager import TechPlanningDB, get_database_url
+from .database_manager import TechPlanningDB, get_database_url
 
 def create_database_config():
     """创建数据库配置文件"""

@@ -12,7 +12,7 @@ def test_database_models():
     """测试数据库模型"""
     print("=== 测试数据库模型 ===")
     try:
-        from database_models import Status, Summary, ConversationHistory, DatabaseManager, get_database_url
+        from .database_models import Status, Summary, ConversationHistory, DatabaseManager, get_database_url
         
         # 使用SQLite进行测试
         db_url = get_database_url('sqlite', database='test.db')
@@ -60,7 +60,7 @@ def test_database_manager():
     """测试数据库管理器"""
     print("\n=== 测试数据库管理器 ===")
     try:
-        from database_manager import TechPlanningDB, get_database_url
+        from .database_manager import TechPlanningDB, get_database_url
         
         # 使用SQLite进行测试
         db_url = get_database_url('sqlite', database='test_manager.db')
@@ -121,7 +121,7 @@ def test_db_config():
     """测试数据库配置"""
     print("\n=== 测试数据库配置 ===")
     try:
-        from db_config import get_database_config, get_db, print_config_info
+        from .db_config import get_database_config, get_db, print_config_info
         
         # 测试配置
         config = get_database_config()
@@ -150,7 +150,7 @@ def test_migration_tool():
     """测试迁移工具"""
     print("\n=== 测试迁移工具 ===")
     try:
-        from migrate_to_mysql import create_database_config
+        from .migrate_to_mysql import create_database_config
         
         # 测试配置创建
         create_database_config()
