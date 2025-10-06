@@ -10,7 +10,7 @@ import json
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 from contextlib import contextmanager
-from .database_models import DatabaseManager, Status, Summary, ConversationHistory, get_database_url
+from database_models import DatabaseManager, Status, Summary, ConversationHistory, get_database_url
 
 class TechPlanningDB:
     """技术规划数据库操作类"""

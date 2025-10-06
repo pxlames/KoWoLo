@@ -12,7 +12,7 @@ def test_database_models():
     """测试数据库模型"""
     print("=== 测试数据库模型 ===")
     try:
-        from .database_models import Status, Summary, ConversationHistory, DatabaseManager, get_database_url
+        from database_models import Status, Summary, ConversationHistory, DatabaseManager, get_database_url
         
         # 使用SQLite进行测试
         db_url = get_database_url('sqlite', database='test.db')
@@ -60,7 +60,7 @@ def test_database_manager():
     """测试数据库管理器"""
     print("\n=== 测试数据库管理器 ===")
     try:
-        from .database_manager import TechPlanningDB, get_database_url
+        from database_manager import TechPlanningDB, get_database_url
         
         # 使用SQLite进行测试
         db_url = get_database_url('sqlite', database='test_manager.db')
@@ -121,7 +121,7 @@ def test_db_config():
     """测试数据库配置"""
     print("\n=== 测试数据库配置 ===")
     try:
-        from .db_config import get_database_config, get_db, print_config_info
+        from db_config import get_database_config, get_db, print_config_info
         
         # 测试配置
         config = get_database_config()
@@ -150,7 +150,7 @@ def test_migration_tool():
     """测试迁移工具"""
     print("\n=== 测试迁移工具 ===")
     try:
-        from .migrate_to_mysql import create_database_config
+        from migrate_to_mysql import create_database_config
         
         # 测试配置创建
         create_database_config()
@@ -171,7 +171,7 @@ def test_migration_tool():
 
 def main():
     """主测试函数"""
-    print("🚀 开始测试MySQL工具...")
+    print("开始测试MySQL工具...")
     
     tests = [
         test_database_models,
@@ -187,13 +187,13 @@ def main():
         if test():
             passed += 1
     
-    print(f"\n📊 测试结果: {passed}/{total} 通过")
+    print(f"\n测试结果: {passed}/{total} 通过")
     
     if passed == total:
-        print("🎉 所有测试通过！MySQL工具准备就绪！")
+        print("所有测试通过！MySQL工具准备就绪！")
         return True
     else:
-        print("❌ 部分测试失败，请检查错误信息")
+        print("部分测试失败，请检查错误信息")
         return False
 
 if __name__ == "__main__":
